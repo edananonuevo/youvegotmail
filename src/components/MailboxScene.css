@@ -1,0 +1,120 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  min-height: 100dvh;
+  width: 100%;
+}
+
+/* =========================
+   MAILBOX LAYERS
+========================= */
+
+.scene {
+  position: relative; /* Ensure the mailbox is positioned relative to this container */
+  width: 100%; /* Make the scene responsive */
+  height: 100%; /* Adjust height to fit the viewport */
+}
+
+.mailbox {
+  position: absolute; /* Position relative to the .scene container */
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 350px;
+  pointer-events: none;
+}
+
+/* Bottom part (behind envelope) */
+.mailbox.bottom {
+  bottom: 154px;
+  z-index: 1;
+}
+
+/* Top part (in front of envelope) */
+.mailbox.top {
+  bottom: 153px; /* adjust based on your image */
+  z-index: 4;
+}
+
+/* =========================
+   ENVELOPE
+========================= */
+
+.envelope-wrapper {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: 415px; /* aligns with slot */
+  z-index: 2;
+}
+
+.envelope {
+  width: 180px;
+}
+
+/* Slide out */
+.envelope-wrapper.slide {
+  animation: slideOut 0.8s ease forwards;
+}
+
+@keyframes slideOut {
+  0% { transform: translate(-50%, 0); }
+  80% { transform: translate(-50%, 260px); }
+  100% { transform: translate(-50%, 243px); }
+}
+
+/* Open tilt */
+.envelope-wrapper.open {
+  transform: translate(-50%, 243px) rotateX(40deg);
+  transition: transform 0.6s ease;
+}
+
+/* =========================
+   LETTER
+========================= */
+
+.letter {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 50px) scale(0.8);
+  bottom: 180px;
+  opacity: 0;
+  transition: all 0.8s ease;
+  z-index: 4;
+}
+
+.letter img {
+  width: 350px;
+}
+
+.letter.open {
+  transform: translate(-50%, -50%) scale(1); /* Center the letter in the viewport */
+  top: 50%; /* Position from the top */
+  bottom: -100px; /* Reset bottom positioning */
+  opacity: 1;
+}
+
+/* =========================
+   UI
+========================= */
+
+.hint {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+}
+
+.white-box {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 600px; /* Adjust to position between envelope and mailbox top */
+  width: 200px; /* Adjust width as needed */
+  height: 50px; /* Adjust height as needed */
+  background-color: white;
+  z-index: 3; /* Ensure it is between envelope (z-index: 2) and mailbox top (z-index: 3) */
+}
