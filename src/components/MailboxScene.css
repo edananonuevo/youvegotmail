@@ -37,6 +37,7 @@ body::before {
   position: relative; /* Ensure the mailbox is positioned relative to this container */
   width: 100%; /* Make the scene responsive */
   height: 100%; /* Adjust height to fit the viewport */
+  perspective:1000px; /* Add perspective for 3D effects */
   /* filter: drop-shadow(0px 20px 20px rgba(0, 0, 0, 0.25)); */
 }
 
@@ -91,6 +92,7 @@ body::before {
   transform: translate(-50%, 0);
   bottom: 415px; /* aligns with slot */
   z-index: 3;
+  perspective: 2000px; /* Add perspective for 3D effects */
 }
 
 .envelope {
@@ -108,10 +110,37 @@ body::before {
   100% { transform: translate(-50%, 243px); }
 }
 
-/* Open tilt */
-.envelope-wrapper.open {
-  transform: translate(-50%, 243px) rotateX(40deg);
+.flap {
+  position: absolute;
+  width: 95%;
+  transform-style: preserve-3d;
+  transform-origin: bottom;
   transition: transform 0.6s ease;
+  z-index: 10;
+  bottom: 0; /* Position the flap at the top of the envelope */
+  transform: translateY(-108px) translateX(5px) rotateX(0deg); /* Start with the flap closed */
+}
+
+.flap.open {
+  transform: rotateX(-180deg) translateY(270px) translateX(5px); /* Flip the flap open */
+}
+
+.flap img {
+  position: absolute;
+  width: 100%;
+  backface-visibility: hidden; /* Hide the back image when not flipped */
+}
+
+/* Up Facing Flap (Inside) */
+.up {
+  transform: rotateX(0deg);
+}
+
+/* Down Facing Flap (Outside) */
+.down {
+  transform: rotateX(-180deg);
+  transform: rotateY(-180deg); /* Position the inside flap correctly when flipped */
+  
 }
 
 /* =========================
