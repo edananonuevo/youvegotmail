@@ -237,11 +237,12 @@ tml, body, #root {
 ========================= */
 .letter-text {
   position: absolute;
-  top: 195px;   /* adjust padding inside paper */
-  left: 120px;
+  /* top: 195px;  */
+  top: 90px;
+  left: 120px; 
 
   width: 104px;
-  transform: rotateZ(-90deg);
+  /* transform: rotateZ(-90deg); */
   transform-origin: top left;
 
   z-index: 50;
@@ -259,7 +260,7 @@ tml, body, #root {
 }
 
 .typewriter {
-  /* font-family: 'Handwritten-Regular', serif; */
+  font-family: 'Handwritten-Regular', serif;
   font-size: 6px;
   line-height: 1;
   
