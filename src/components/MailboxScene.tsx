@@ -19,6 +19,33 @@ export default function MailboxScene() {
     });
   };
 
+  const [letterText, setLetterText] = useState("");
+  const [displayedText, setDisplayedText] = useState("");
+
+  useEffect(() => {
+    fetch("/youvegotmail/letter.txt")
+      .then((res) => res.text())
+      .then((text) => setLetterText(text));
+  }, []);
+
+  useEffect(() => {
+    if (stage !== "viewing") return;
+
+    let i = 0;
+
+    const interval = setInterval(() => {
+      i++;
+
+      setDisplayedText(letterText.slice(0, i));
+
+      if (i >= letterText.length) {
+        clearInterval(interval);
+      }
+    }, 25);
+
+    return () => clearInterval(interval);
+  }, [stage, letterText]);
+
   useEffect(() => {
     if (stage === "flip") {
       setTimeout(() => setIsFlapUp(true), 350); // Toggle flap halfway through the flip animation
@@ -49,7 +76,15 @@ export default function MailboxScene() {
         {/* LETTER (moves above flap when opening) */}
         <div className={`letter ${stage}`}>
           <img src="/youvegotmail/images/letter.png" />
+          {/* LETTER TEXT */}
+          <div className={`letter-text ${stage}`}>
+            <p className="typewriter">
+              {displayedText}
+            </p>
+          </div>
         </div>
+
+        
 
         {/* FLAP (z-index flips depending on stage) */}
         <div className={`flap ${stage}`}>
