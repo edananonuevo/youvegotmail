@@ -254,11 +254,12 @@ tml, body, #root {
   overflow-wrap: break-word;
 
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
 }
 
 .typewriter {
-  font-family: 'Handwritten-Regular', serif;
+  /* font-family: 'Handwritten-Regular', serif; */
   font-size: 6px;
   line-height: 1;
   
