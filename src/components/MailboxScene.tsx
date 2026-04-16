@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./MailboxScene.css";
 
-type Stage = "idle" | "slide" | "flip" | "pull" | "viewing";
+type Stage = "idle" | "slide" | "flip" | "pull" | "open" | "viewing" | "typing";
 
 export default function MailboxScene() {
   const [stage, setStage] = useState<Stage>("idle");
@@ -12,7 +12,9 @@ export default function MailboxScene() {
       if (prev === "idle") return "slide";
       if (prev === "slide") return "flip";
       if (prev === "flip") return "pull";
-      if (prev === "pull") return "viewing";
+      if (prev === "pull") return "open";
+      if (prev === "open") return "viewing";
+      if (prev === "viewing") return "typing";
       return prev;
     });
   };
@@ -46,7 +48,7 @@ export default function MailboxScene() {
 
         {/* LETTER (moves above flap when opening) */}
         <div className={`letter ${stage}`}>
-          <img src="/youvegotmail/images/letter-top.png" />
+          <img src="/youvegotmail/images/letter.png" />
         </div>
 
         {/* FLAP (z-index flips depending on stage) */}
