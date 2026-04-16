@@ -204,8 +204,8 @@ tml, body, #root {
 }
 
 .letter img {
-  width: 400px;
-  transform: translateY(32px) translateX(17px) scale(0.5);
+  width: 200px;
+  transform: translateY(32px) translateX(17px);
 }
 
 /* flip */
@@ -226,10 +226,14 @@ tml, body, #root {
 }
 
 /* view */
-.envelope-wrapper.viewing .letter,
-.envelope-wrapper.typing .letter {
-  transform: rotateZ(90deg) translateX(-50%) translateY(100px) scale(3.2);
+.envelope-wrapper.viewing .letter {
+  transform: rotateZ(90deg) translateX(-50%) translateY(100px);
   z-index: 20;
+}
+
+.envelope-wrapper.viewing .letter img {
+  transform: scale(3.2);
+  transition: transform 0.6s ease;
 }
 
 /* =========================
@@ -237,12 +241,11 @@ tml, body, #root {
 ========================= */
 .letter-text {
   position: absolute;
-  /* top: 195px;  */
-  top: 90px;
-  left: 120px; 
+  top: 220px; 
+  left: -200px; 
 
-  width: 104px;
-  /* transform: rotateZ(-90deg); */
+  width: 320px;
+  transform: rotateZ(-90deg);
   transform-origin: top left;
 
   z-index: 50;
@@ -261,7 +264,7 @@ tml, body, #root {
 
 .typewriter {
   font-family: 'Handwritten-Regular', serif;
-  font-size: 6px;
+  font-size: 17px;
   line-height: 1;
   
   white-space: pre-wrap; /* IMPORTANT: keeps line breaks from .txt */

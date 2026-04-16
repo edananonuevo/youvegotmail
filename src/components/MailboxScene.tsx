@@ -32,17 +32,19 @@ export default function MailboxScene() {
 
     let i = 0;
 
-    const interval = setInterval(() => {
-      i++;
+    const startDelay = setTimeout(() => {
+      const interval = setInterval(() => {
+        i++;
 
-      setDisplayedText(letterText.slice(0, i));
+        setDisplayedText(letterText.slice(0, i));
 
-      if (i >= letterText.length) {
-        clearInterval(interval);
-      }
-    }, 25);
+        if (i >= letterText.length) {
+          clearInterval(interval);
+        }
+      }, 25);
+    }, 1000); // Start typing after 1 second
 
-    return () => clearInterval(interval);
+    return () => clearInterval(startDelay);
   }, [stage, letterText]);
 
   useEffect(() => {
