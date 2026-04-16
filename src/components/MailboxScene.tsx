@@ -20,8 +20,10 @@ export default function MailboxScene() {
         className="mailbox bottom"
       />
 
+      <div className="shadow"></div>
+
       {/* BETWEEN (hide envelope) */}
-      <div className="white-box"></div>
+      {/* <div className="white-box"></div> */}
 
       {/* ENVELOPE */}
       <div className={`envelope-wrapper ${stage}`}>
