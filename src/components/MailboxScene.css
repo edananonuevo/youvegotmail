@@ -273,9 +273,11 @@ tml, body, #root {
    OPTIONAL UI
 ========================= */
 
-.hint {
+.instructions {
   position: absolute;
-  bottom: 10px;
+  font-family: 'Helvetica', serif;
+  color: #414141;
+  bottom: 100px;
   width: 100%;
   text-align: center;
   font-size: 14px;

@@ -7,6 +7,15 @@ export default function MailboxScene() {
   const [stage, setStage] = useState<Stage>("idle");
   const [isFlapUp, setIsFlapUp] = useState(false);
 
+  const instructions: Record<Stage, string> = {
+    idle: "Tap the mailbox to take out the mail",
+    slide: "Tap the envelope to open it",
+    flip: "Tap the letter to pull it out",
+    pull: "Tap the letter to rotate it",
+    open: "Tap the letter to read it",
+    viewing: ""
+  };
+
   const handleClick = () => {
     setStage((prev) => {
       if (prev === "idle") return "slide";
@@ -114,6 +123,11 @@ export default function MailboxScene() {
         src="/youvegotmail/images/mailbox-top.png"
         className={`mailbox top ${stage}`}
       />
+
+      {/* INSTRUCTIONS */}
+      <div className={`instructions ${stage}`}>
+        {instructions[stage]}
+      </div>
     </div>
   );
 }
