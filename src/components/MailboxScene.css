@@ -194,8 +194,8 @@ tml, body, #root {
 
 .letter {
   position: absolute;
-  left: 50%;
-  bottom: 0;
+  left: 115px;
+  bottom: 25px;
 
   transform: translateX(-50%);
   transition: transform 0.6s ease;
@@ -205,7 +205,6 @@ tml, body, #root {
 
 .letter img {
   width: 200px;
-  transform: translateY(32px) translateX(17px);
 }
 
 /* flip */
@@ -219,15 +218,15 @@ tml, body, #root {
   z-index: 3;
 }
 
-/* open */
+/* open (rotate) */
 .envelope-wrapper.open .letter {
-  transform: rotateZ(90deg) translateX(-50%) translateY(74%);
+  transform: rotateZ(90deg) translateX(-50%) translateY(116px);
   z-index: 3;
 }
 
 /* view */
 .envelope-wrapper.viewing .letter {
-  transform: rotateZ(90deg) translateX(-50%) translateY(100px);
+  transform: rotateZ(90deg) translateX(-50%) translateY(115px);
   z-index: 20;
 }
 
