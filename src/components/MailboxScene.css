@@ -110,6 +110,14 @@ body::before {
   100% { transform: translate(-50%, 243px); }
 }
 
+.envelope-wrapper.flip {
+  transform: translate(-50%, 243px); /* Keep the final position from slideOut */
+}
+
+.envelope-wrapper.open {
+  transform: translate(-50%, 243px); /* Keep the final position from slideOut */
+}
+
 .flap {
   position: absolute;
   width: 95%;

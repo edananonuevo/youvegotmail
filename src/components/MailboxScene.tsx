@@ -24,7 +24,7 @@ export default function MailboxScene() {
       
       {/* BACK (bottom part of mailbox) */}
       <img
-        // src="/youvegotmail/images/mailbox-bot.png"
+        src="/youvegotmail/images/mailbox-bot.png"
         className="mailbox bottom"
       />
 
@@ -45,14 +45,14 @@ export default function MailboxScene() {
 
       {/* FRONT (top part covers envelope) */}
       <img
-        // src="/youvegotmail/images/mailbox-top.png"
+        src="/youvegotmail/images/mailbox-top.png"
         className="mailbox top"
       />
 
       {/* LETTER */}
-      {/* <div className={`letter ${stage}`}>
-        <img src="/youvegotmail/images/letter.png" />
-      </div> */}
+      <div className={`letter ${stage}`}>
+        {/* <img src="/youvegotmail/images/letter.png" /> */}
+      </div>
     </div>
   );
 }
