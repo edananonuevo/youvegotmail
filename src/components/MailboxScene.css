@@ -1,7 +1,9 @@
 html, body, #root {
+  margin: 0;
   height: 100dvh;
 
-  margin: 0;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
 
   background: linear-gradient(135deg, #fff1f5, #ffe9d6, #f3f6ff);
   background-size: 300% 300%;
