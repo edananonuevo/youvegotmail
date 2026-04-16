@@ -252,6 +252,9 @@ tml, body, #root {
   white-space: normal;   /* allows wrapping */
   word-wrap: break-word; /* ensures long words break */
   overflow-wrap: break-word;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .typewriter {
