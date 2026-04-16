@@ -1,5 +1,6 @@
 html, body, #root {
   height: 100dvh;
+
   margin: 0;
 
   background: linear-gradient(135deg, #fff1f5, #ffe9d6, #f3f6ff);
@@ -7,7 +8,7 @@ html, body, #root {
   animation: bgMove 10s ease-in-out infinite;
 }
 
-body::before {
+/* body::before {
   content: "";
   position: absolute;
   top: -20%;
@@ -22,7 +23,7 @@ body::before {
   );
 
   filter: blur(40px);
-}
+} */
 
 .container {
   min-height: 100dvh;
