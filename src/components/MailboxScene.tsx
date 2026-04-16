@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./MailboxScene.css";
 
-type Stage = "idle" | "slide" | "flip" | "pull" | "open" | "viewing" | "typing";
+type Stage = "idle" | "slide" | "flip" | "pull" | "open" | "viewing";
 
 export default function MailboxScene() {
   const [stage, setStage] = useState<Stage>("idle");
@@ -14,7 +14,6 @@ export default function MailboxScene() {
       if (prev === "flip") return "pull";
       if (prev === "pull") return "open";
       if (prev === "open") return "viewing";
-      if (prev === "viewing") return "typing";
       return prev;
     });
   };

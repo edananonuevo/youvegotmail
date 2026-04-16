@@ -26,6 +26,7 @@ tml, body, #root {
   width: 100%;
   height: 100%;
   perspective: 1000px;
+  transform: translateY(50px);
 }
 
 /* =========================
